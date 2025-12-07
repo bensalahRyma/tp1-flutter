@@ -65,7 +65,7 @@ flutter doctor
 
 ### 2️⃣ Télécharger le projet
 ```bash
-git clone <URL_DU_DEPOT>
+git clone https://github.com/bensalahRyma/tp1-flutter
 cd tp1_flutter
 ```
 
