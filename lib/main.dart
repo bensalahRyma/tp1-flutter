@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
-import 'profile_page.dart';
-import 'quizz_page.dart';
+import 'package:provider/provider.dart';
+import 'package:tp_flutter/presentation/pages/profile_page.dart' show ProfilePage;
+import 'package:tp_flutter/presentation/pages/quiz_page.dart';
+import 'data/providers/quiz_provider.dart';
+
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => QuizProvider(),
+      child: const MyApp(),
+    ),
+  );
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -17,7 +26,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(), // Page d'accueil
+      home: const HomePage(),
     );
   }
 }
@@ -66,11 +75,11 @@ class HomePage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const QuizzPage()),
+                  MaterialPageRoute(builder: (context) => const QuizBlocPage()),
                 );
               },
               child: const Text("Commencer le Quizz"),
-            ),
+            )
           ],
         ),
       ),
